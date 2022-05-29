@@ -3,7 +3,7 @@ const chalk = require('chalk')
 const { describe, string } = require('yargs')
 const yargs = require('yargs')
 
-const getNotes = require('./notes.js')
+const notes = require('./notes.js')
 
 const command = process.argv[2]
 // custumize yargs version
@@ -26,9 +26,7 @@ yargs.command({
         }
     },
     handler : function (argv) {
-        console.log('Adding a new note!\nYour title: '+argv.title)
-        fs.writeFileSync('notes.json',JSON.stringify(argv))
-        console.log('Your body: '+argv.body)
+        notes.addNote(argv.title, argv.body)
     }
 })
 

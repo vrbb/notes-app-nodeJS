@@ -1,12 +1,8 @@
 const fs = require('fs')
 
-const book = {
-    title : 'Ego is the Enemy',
-    author : 'Ryan Holiday',
+const jsonFile = fs.readFileSync('notes.json')
 
-}
-
-const bookJSON =JSON.stringify(book)
-
-console.log(bookJSON)
-console.log(book)
+const jsonFileData = JSON.parse(jsonFile)
+console.log (jsonFile,jsonFileData)
+jsonFileData.name = 'Anderson'
+console.log (jsonFile,jsonFileData)
