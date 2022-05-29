@@ -51,9 +51,7 @@ yargs.command({
   command: 'list',
   describe: 'List the notes',
   handler: function () {
-    console.log('Listing out all notes!')
-    console.log(fs.readFileSync('notes.json').toString)
-
+    notes.getNotes()
   }
 })
 
