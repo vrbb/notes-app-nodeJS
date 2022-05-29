@@ -66,13 +66,15 @@ const removeNote = (title) => {
 
 const readNote = (title) => {
   const notes = loadNotes()
-  
+
   const findNote = notes.find((note) => note.title === title)
 
   if (findNote) {
     console.log(chalk.white.bold(findNote.title)) 
     console.log(findNote.body)
     console.log(' ')
+  } else {
+    console.log('Don\'t find the note ')
   }
 }
 module.exports = {
