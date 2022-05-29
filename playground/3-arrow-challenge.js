@@ -14,19 +14,18 @@ const tasks = {
       text: 'Film course',
       completed: false
     }
-  ]
+  ],
+  getTasksToDo() {
+    tasks.tasks.forEach( function (task) {
+      if (task.completed){
+        console.log(task.text + chalk.green(' OK'))
+      } else {
+        console.log(task.text)
+      }  
+    });
+  }
 }
 
-const getTasksToDo = () => {
-  tasks.tasks.forEach( function (task) {
-    if (task.completed){
-      console.log(task.text + chalk.green(' OK'))
-    } else {
-      console.log(task.text)
 
-    }
-    
-  });
-}
 
-getTasksToDo()
+tasks.getTasksToDo()
