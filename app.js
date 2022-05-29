@@ -1,5 +1,6 @@
+const fs = require('fs')
 const chalk = require('chalk')
-const { describe } = require('yargs')
+const { describe, string } = require('yargs')
 const yargs = require('yargs')
 
 const getNotes = require('./notes.js')
@@ -26,6 +27,7 @@ yargs.command({
     },
     handler : function (argv) {
         console.log('Adding a new note!\nYour title: '+argv.title)
+        fs.writeFileSync('notes.json',JSON.stringify(argv))
         console.log('Your body: '+argv.body)
     }
 })
@@ -45,6 +47,8 @@ yargs.command({
     describe: 'List the notes',
     handler : function () {
         console.log('Listing out all notes!')
+        console.log(fs.readFileSync('notes.json').toString)
+
     }
 })
 
